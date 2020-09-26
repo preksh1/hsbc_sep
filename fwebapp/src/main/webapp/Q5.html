@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="RegistrationServlet" method="">
+<center>
+
+		Nmae: <input type=text name=name id="n1" class="nn" required  ><br>
+		Phone number: <input type=text name=ph_no id="n2" required "> <br> 
+		<!-- exact 10 numbers in phone number above,not more than logic -->
+		password:<input type=password name=password id="n3" required pattern="(?=.*[a-z])(.*[A-Z])(.*[0-9])$" title="use atleast one number,special character,capital and small aplhabet"><br>   
+		<div id="result"></div>
+		<input type=submit value=Register id=bb><br>
+		</form>
+		</center>
+
+</body>
+</html>

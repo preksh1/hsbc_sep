@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p align="center">Registration page</p>
+
+
+	<center>
+	<form action="RegistrationServlet" method="">
+		Nmae: <input type=text name=name id="n1" class="nn" required pattern="[^0-9][0-9a-zA-Z]*$" title="name cant start with a number"><br>
+		Password: <input type=password name=password id="n2" required> <br>
+		address:<input type=text name=address id="n3" required onBlur="generateCaptcha()"><br>
+		<div id="result"></div>
+		<input type=submit value=Register id=bb onclick="validate() "><br>
+		
+		</center>
+		</form>
+</body>
+</html>

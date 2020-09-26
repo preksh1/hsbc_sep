@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+//document.getElementById("states").addEventListener("change", resetFieldToDefault);
+//document.getElementById("states").addEventListener("change", getstates);
+	function getstates(){
+				
+		//var el=["New South Wales","Victoria","Queensland","Tasmania","Western Australia","South Australia"];
+		//alert(el);
+		//var v=document.getElementById("country");
+		//var inp=v.options[v.selectedIndex].value;
+		//resetFieldToDefault();
+		
+		var inp=document.querySelector('#country').value;
+		var op=null;
+		op=document.getElementById("states");
+		//alert(inp);
+		var el=null;
+		if(inp=="australia"){
+
+			el=["New South Wales","Victoria","Queensland","Tasmania","Western Australia","South Australia"];
+			
+		}
+		
+		else if(inp=="austria"){
+			
+			el=["Burgenland","Carinthia"," Lower Austria","Upper Austria"," Salzburg","Styria","Tyrol","Vorarlberg","Vienna"];
+			
+		}
+		//alert(el);
+		/**	
+			function getstates(){
+				$.each(el,function(i,p){
+					$('#arr').append($('<option></option>').val(p).html(p))
+				});
+				
+			}
+			**/
+		
+		for(var i=0;i<el.length;i++){
+			
+			var optn=null;
+			optn=el[i];
+			var elem=null;
+			elem=document.createElement("option");
+			elem.textContent=optn;
+			elem.value=optn;
+			op.appendChild(elem);
+			
+		}
+			
+			
+		//alert("hi change ur meth"+el);
+		
+		
+		
+	}
+
+</script>
+</head>
+<body>
+<form action="RegistrationServlet" method="">
+Country:
+<select name="country" id="country" onchange="getstates();">
+	<option value="select country">select country</option>
+	<option value="australia">Australia</option>
+	<option value="austria">Austria</option>
+</select>
+States:
+<select id="states"></select>
+</form>
+</body>
+</html>
