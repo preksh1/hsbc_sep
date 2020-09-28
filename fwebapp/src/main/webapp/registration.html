@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
-
+	
 	function validate(){
 		var v1=document.getElementById("n1").value;
 		var v2=document.getElementById("n2").value;
@@ -15,16 +15,35 @@
 	}
 		function generateCaptcha(){
 			var v=parseInt((Math.random())*1000);
-			document.getElementById("result").innerHTML="<input type=text disabled name=nb value="+v+"><input type=button value=refresh onClick=generateCaptcha()><br> enter above number<input type=text id=cc1><input type=button value=validate onlcick=captchavalidate()>";
+			document.getElementById("result").innerHTML="<input type=text disabled id=nb value="+v+"><input type=button value=refresh onClick=generateCaptcha()><br> enter above number<input type=text id=cc1><input type=button value=validate onClick=captchavalidate()>";
 		}
 		function captchavalidate(){
+			
 			var v1=document.getElementById("nb").value;
 			var v2=document.getElementById("cc1").value;
 		
 		if(v1==v2){
+			
 			document.getElementById("bb").disabled=false;
 		}
+		else{
+			alert("enter correct captcha");
 		}
+		
+	}
+		function passwordcreate(){
+			var v1=document.getElementById("n2").value;
+			if(v1.length<4){
+				document.getElementById("a").innerHTML="<font color=red>Weak password";
+			}
+			else if(v1.length>=4 && v1.length<7){
+				document.getElementById("a").innerHTML="<font color=orange>Medium password";
+			}
+			else{
+				document.getElementById("a").innerHTML="<font color=green>Strong password";
+			}
+		}
+	
 	
 </script>
 
@@ -33,12 +52,13 @@
 	<p align="center">Registration page</p>
 	<center>
 	<form action="RegistrationServlet" method="">
-		Nmae: <input type=text name=name id="n1" class="nn" required pattern="[^0-9]+[0-9a-zA-Z]"]><br>
-		Password: <input type=password name=password id="n2" required> <br>
-		address:<input type=text name=address id="n3" required onBlur="generateCaptcha()"><br>
+		Name: <input type=text name=name id="n1" class="nn" required ><br>
+		Password: <input type=password name=password id="n2" required onkeyup="passwordcreate()"> <br>
+		<div id="a"></div>
+		email:<input type=text name=email id="n3" required onBlur="generateCaptcha()" ><br>
 		<div id="result"></div>
-		<input type=submit value=Register id=bb disabled onclick="validate() "><br>
-		
+		<input type=submit value=Register id=bb onclick="validate()" disabled><br>
+		</form>
 		</center>
 		
 

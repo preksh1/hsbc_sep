@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Instagram sign in</title>
+<script type="text/javascript">
+/**
+function validate(){
+	var v1=document.getElementById("n");
+	var v2=document.getElementById("p");
+	var v3=document.getElementById("e");
+	if(v1.length==0||v2.length==0||v3.length==0){
+		alert("anfield ")
+	}
+}**/
+function generateCaptcha(){
+	var v=parseInt((Math.random())*100);
+	document.getElementById("result").innerHTML="<input type=text disbled id=r value="+v+"><input type=button value=refresh onClick=generateCaptcha()><br>Enter above number<input type=text id=c ><input type=button value=validate onClick=checkCaptcha()>";
+	
+}
+function checkCaptcha(){
+	var a=document.getElementById("r").value;
+	var b=document.getElementById("c").value;
+	if(a==b){
+		document.getElementById("s").disabled=false;
+		
+	}
+	else{
+		alert("give valid captcha");
+	}
+}
+
+function passwordStrength(){
+	var v1=document.getElementById("p").value;
+	var n=v1.length;
+	if(n<4){
+		document.getElementById("a").innerHTML="<font color=red> Weak";
+		
+	}
+	else if(n>=4 && n<7){
+		document.getElementById("a").innerHTML="<font color=orange> Medium";
+	}
+	else{
+		document.getElementById("a").innerHTML="<font color=green> Strong";
+	}
+	
+	
+}
+
+
+
+
+
+</script>
+
+
+</head>
+<body>
+<p align="center">Instagram Registration</p>
+<center>
+<form action="SigninInstaServlet" method="">
+Name:<input type="text" name="name" id="n" required><br>
+Password:<input type="text" name="password" id="p" required onkeyup="passwordStrength()"><br>
+<div id="a" ></div>
+email:<input type="email" name="email" id="e" required onBlur="generateCaptcha()"><br>
+<div id="result" ></div>
+<input type= submit value="sign in" id=s disabled ><br>
+</form>
+</center>
+
+
+</body>
+</html>

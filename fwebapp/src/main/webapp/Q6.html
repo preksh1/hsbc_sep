@@ -4,11 +4,19 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
+window.onload=function(){
+
+////var op=document.getElementById("states");
 
 
-//document.getElementById("states").addEventListener("change", resetFieldToDefault);
-//document.getElementById("states").addEventListener("change", getstates);
+var x=document.getElementById("country")
+
+x.addEventListener("change", getstates);
+}
+
 	function getstates(){
+		var op=document.getElementById("states");
+	//	alert(op.value);
 				
 		//var el=["New South Wales","Victoria","Queensland","Tasmania","Western Australia","South Australia"];
 		//alert(el);
@@ -17,8 +25,14 @@
 		//resetFieldToDefault();
 		
 		var inp=document.querySelector('#country').value;
-		var op=null;
-		op=document.getElementById("states");
+		if(op!=null){
+			//x.addEventListener("change", resetFieldToDefault);
+			//var select = document.getElementById("states");
+			var length = op.options.length;
+			for (i = length-1; i >= 0; i--) {
+			  op.options[i] = null;
+			}
+		
 		//alert(inp);
 		var el=null;
 		if(inp=="australia"){
@@ -60,13 +74,15 @@
 		
 		
 	}
+}
+
 
 </script>
 </head>
 <body>
 <form action="RegistrationServlet" method="">
 Country:
-<select name="country" id="country" onchange="getstates();">
+<select name="country" id="country">
 	<option value="select country">select country</option>
 	<option value="australia">Australia</option>
 	<option value="austria">Austria</option>
