@@ -45,10 +45,11 @@ public class loginServlet extends HttpServlet {
 				HttpSession ss=request.getSession(true);
 				ss.setAttribute("name", name);
 				ss.setAttribute("password", password);
-				out.println("welcome "+name+"<a href=timeline>Timeline</a><a href=friendlist>friendlist</a>");
+				out.println("hey welcome "+name+"<a href=timeline>Timeline</a><a href=friendlist>friendlist</a>");
+				
 			}
 			else {
-				out.println("invalid id and password");
+				out.println("it is an invalid id and password");
 				RequestDispatcher rd=getServletContext().getRequestDispatcher("/insta_login.html");
 				rd.include(request,response);
 			}

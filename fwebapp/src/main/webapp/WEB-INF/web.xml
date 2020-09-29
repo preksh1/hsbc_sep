@@ -17,18 +17,6 @@
   	<servlet-class>com.fwebapp.controller.LoginServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>RegistrationInstaServlet</servlet-name>
-  	<display-name>RegistrationInstaServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.fwebapp.insta.Controller.RegistrationInstaServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>RegInstaServlet</servlet-name>
-  	<display-name>RegInstaServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.fwebapp.insta.Controller.RegistrationInstaServlet</servlet-class>
-  </servlet>
-  <servlet>
   	<servlet-name>SigninInstaServlet</servlet-name>
   	<display-name>SigninInstaServlet</display-name>
   	<description></description>
@@ -47,14 +35,6 @@
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>RegistrationInstaServlet</servlet-name>
-  	<url-pattern>/RegistrationInstaServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>RegInstaServlet</servlet-name>
-  	<url-pattern>/RegInstaServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>SigninInstaServlet</servlet-name>

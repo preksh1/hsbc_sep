@@ -36,6 +36,18 @@ public class Service implements ServiceInterface{
 		// TODO Auto-generated method stub
 		return di.loginProfile(fu);
 	}
+	@Override
+	public boolean checkProfile(fbuser fu) throws Exception {
+		// TODO Auto-generated method stub
+		return di.checkProfile(fu);
+	}
+	public List<String> getCountries() throws Exception{
+		return di.getCountriesDao();
+	}
+	
+	public List<String> getStation(fbuser fu) throws Exception{
+		return di.getStationDao(fu);
+	} 
 
 	
 }

@@ -11,5 +11,7 @@ public interface ServiceInterface {
 	public fbuser viewProfile(fbuser fu);
 	public List<fbuser> viewAllProfile();
 	public boolean loginProfile(fbuser fu) throws Exception;
-	
+	public boolean checkProfile(fbuser fu) throws Exception;
+	public List<String> getCountries() throws Exception;
+	public List<String> getStation(fbuser fu) throws Exception;
 }

@@ -5,8 +5,23 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	
-	function validate(){
+	function validname(){
 		var v1=document.getElementById("n1").value;
+		
+		
+		var x = new XMLHttpRequest();
+		x.open("GET","namecheck.jsp?name="+v1,true);
+		
+		x.send();
+		
+		x.onreadystatechange=function(){
+			if(x.readyState==4){
+				var vv=x.responseText;
+				document.getElementById("rr").innerHTML=vv;
+			}
+		}
+	}
+		function validate(){
 		var v2=document.getElementById("n2").value;
 		var v3=document.getElementById("n3").value;
 		if(v1.length==0||v2.length==0||v3.length==0){
@@ -43,21 +58,76 @@
 				document.getElementById("a").innerHTML="<font color=green>Strong password";
 			}
 		}
+		
+		
+		function loadcountry(){
+			var x=new XMLHttpRequest();
+			//to open connection
+			x.open("GET","country.jsp",true);
+			//xhr sends request
+			x.send();
+			
+			//xhr response from server
+			x.onreadystatechange=function(){
+				if(x.readyState==4){
+					var vv=x.responseText;
+					document.getElementById("list").innerHTML=vv;
+				}
+			}
+			
+		}
+		function suggestStation(){
+			
+			
+			var i=document.getElementById("stat").value;
+			if(i.length==3){
+			var x=new XMLHttpRequest();
+			x.open("GET","station_source.jsp?station="+i,true);
+			x.send();
+			x.onreadystatechange=function(){
+				if(x.readyState==4){
+					var vv=x.responseText;
+					document.getElementById("station").innerHTML=vv;
+					
+					}
+				}
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+		
 	
 	
 </script>
 
 </head>
-<body>
+<body onload="loadcountry()" method="post">
 	<p align="center">Registration page</p>
 	<center>
 	<form action="RegistrationServlet" method="">
-		Name: <input type=text name=name id="n1" class="nn" required ><br>
+		Name: <input type=text name=name id="n1" class="nn" required onkeyup="validname()"><br>
+		<div id="rr"></div>
 		Password: <input type=password name=password id="n2" required onkeyup="passwordcreate()"> <br>
 		<div id="a"></div>
 		email:<input type=text name=email id="n3" required onBlur="generateCaptcha()" ><br>
 		<div id="result"></div>
-		<input type=submit value=Register id=bb onclick="validate()" disabled><br>
+		
+		<br>Country:<div id="list"></div>
+		<br>Source:<input type="text" list="station" id="stat" name="station" onkeyup="suggestStation()" >
+		
+		<div id="station"></div>
+		
+		
+		
+		<!-- <datalist id="station" ></datalist> -->
+		
+		
+		<br><input type=submit value=Register id=bb onclick="validate()" disabled><br>
 		</form>
 		</center>
 		

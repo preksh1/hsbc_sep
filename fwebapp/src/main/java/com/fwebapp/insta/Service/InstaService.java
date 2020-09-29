@@ -18,5 +18,6 @@ public class InstaService implements InstaServiceInterface {
 		// TODO Auto-generated method stub
 		return id.loginProfileDao(iu);
 	}
+	
 
 }

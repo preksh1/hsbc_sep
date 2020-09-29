@@ -34,7 +34,7 @@ public class InstaDao implements InstaDaoInterface {
 		if(res.next()) {
 			i=true;
 		}
-		System.out.println(i+"i is");
+		
 		return i;
 	}
 

@@ -11,4 +11,7 @@ public interface DaoInterface {
 	public fbuser viewProfileDao(fbuser fu);
 	public List<fbuser> viewAllProfileDao();
 	public boolean loginProfile(fbuser fu) throws Exception;
+	public boolean checkProfile(fbuser fu) throws Exception;
+	public List<String> getCountriesDao() throws Exception;
+	public List<String> getStationDao(fbuser fu) throws Exception;
 }
